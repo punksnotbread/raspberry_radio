@@ -3,11 +3,30 @@ Change through internet radios by using a button connected to the RPI via GPIO.
 
 Based on https://pinout.xyz/ , an example setup would be ground on 6, GPIO 14 on 8th pin.
 
+
+### Setup
+```
+python3 -m venv venv
+source venv/bin/activate
+python -r requirements.txt
+```
+
+### Local testing
+```
+venv/bin/python main.py
+```
+
 ## TODOs
-- Move logging to separate class.
-- Add other radios.
+- Move logging to separate class (and log better).
+- Add other radio stations.
+  - Maybe make this configureable via a frontend? 
 - Make this configureable via config.
 - Daemonize.
+- Test.
+- Lint.
+- Typehint.
+- Fix requirements (it still requires to reinstall `RPi.GPIO` on some occasions?)
+- Metrics? (e.g. how much time is spent being on one or the other station)
 
 ### Daemonize (linux)
 ```
