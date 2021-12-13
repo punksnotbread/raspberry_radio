@@ -27,6 +27,7 @@ venv/bin/python main.py
 - Typehint.
 - Fix requirements (it still requires to reinstall `RPi.GPIO` on some occasions?)
 - Metrics? (e.g. how much time is spent being on one or the other station)
+- Make it possible to switch through the stations via HTTP requests? (e.g. build a listener server?)
 
 ### Daemonize (linux)
 ```
