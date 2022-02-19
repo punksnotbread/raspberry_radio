@@ -1,10 +1,10 @@
 # raspberry_radio
-Change through internet radios by using a button connected to the RPI via GPIO.
+Change through internet radios by using a button connected to the RPI via GPIO, or via local webserver. 
 
-Based on https://pinout.xyz/ , an example setup would be ground on 6, GPIO 14 on 8th pin.
-
+Radio stations are defined in `library.py`.
 
 ### Setup
+Based on https://pinout.xyz/ , an example setup would be ground on 6, GPIO 14 on 8th pin.
 ```
 python3 -m venv venv
 source venv/bin/activate

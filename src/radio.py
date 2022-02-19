@@ -14,8 +14,8 @@ _logger.debug("Initialised radio button listener.")
 class Radio(Player, RadioQueueWorker):
     def __init__(self, player):
         self.enabled = False
-        self.hold_time = 0
-        self.gpio_pin = 14
+        self.hold_time = 0  # TODO: make configurable.
+        self.gpio_pin = 14  # TODO: make configurable.
         try:
             self.button = Button(self.gpio_pin, hold_time=self.hold_time)
         except Exception:
