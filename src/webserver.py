@@ -1,8 +1,10 @@
+import logger
 from fastapi import FastAPI, Form
 from fastapi.responses import HTMLResponse
 import uvicorn
 from worker import QUEUE
 
+_logger = logger.init_logger(__name__)
 app = FastAPI(title="Raspberry Radio")
 
 

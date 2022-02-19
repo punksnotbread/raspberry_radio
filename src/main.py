@@ -1,4 +1,4 @@
-import logging
+import logger
 import threading
 
 from player import VLCPlayer
@@ -7,9 +7,7 @@ from webserver import Webserver
 from voice_speaker import ESpeaker
 from worker import RadioQueueWorker
 
-logging.basicConfig(format="%(asctime)s %(name)s  %(levelname)s  %(message)s")
-_logger = logging.getLogger("main")
-_logger.level = logging.DEBUG
+_logger = logger.init_logger(__name__)
 
 
 def main():

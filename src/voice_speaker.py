@@ -1,11 +1,9 @@
-import logging
+import logger
 import os
 
 from gtts import gTTS
 
-logging.basicConfig(format="%(asctime)s %(name)s  %(levelname)s  %(message)s")
-_logger = logging.getLogger("voice_speaker")
-_logger.level = logging.DEBUG
+_logger = logger.init_logger(__name__)
 
 
 class ESpeaker:
