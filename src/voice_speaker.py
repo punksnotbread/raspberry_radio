@@ -1,9 +1,13 @@
+from pathlib import Path
 import logger
 import os
 
 from gtts import gTTS
 
 _logger = logger.init_logger(__name__)
+
+ROOT_DIR = Path(__file__).parent.parent
+MP3S_DIR = ROOT_DIR / 'mp3s'
 
 
 class ESpeaker:
@@ -16,8 +20,9 @@ class ESpeaker:
         if not writepath.endswith(".mp3"):
             writepath = f"{words}.mp3"
         saved_file = False
-        if not os.path.exists(writepath):
+        absolute_writepath = MP3S_DIR / writepath
+        if not os.path.exists(absolute_writepath):
             tts = self.speaker(words)
-            tts.save(writepath)
+            tts.save(str(absolute_writepath))
             saved_file = True
-        return {"path": writepath, "file_was_saved": saved_file}
+        return {"path": absolute_writepath, "file_was_saved": saved_file}
