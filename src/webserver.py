@@ -1,8 +1,11 @@
+import uvicorn
 from fastapi import FastAPI, Form
 from fastapi.responses import HTMLResponse
-import uvicorn
+
+import logger
 from worker import QUEUE
 
+_logger = logger.init_logger(__name__)
 app = FastAPI(title="Raspberry Radio")
 
 
@@ -22,19 +25,19 @@ def read_root():
         <form name="Radio selection" action="/" method="POST">
             <input type="radio" id="off" name="radio_station" value="Off">
             <label for="off">Off</label><br>
-            
+
             <input type="radio" id="psr" name="radio_station" value="PSR">
             <label for="psr">Palanga street radio</label><br>
-            
+
             <input type="radio" id="opus" name="radio_station" value="Opus">
             <label for="opus">LRT Opus</label><br>
-            
+
             <input type="radio" id="nts1" name="radio_station" value="NTS1">
             <label for="nts1">NTS1</label><br>
-            
+
             <input type="radio" id="nts2" name="radio_station" value="NTS2">
             <label for="nts2">NTS2</label><br>
-            
+
             <input type="submit">
         </form>
     </html>

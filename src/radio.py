@@ -1,15 +1,13 @@
-import logging
 from signal import pause
 
 from gpiozero import Button
 
+import logger
 from library import OPTIONS, RADIOS
 from player import Player
-from worker import RadioQueueWorker, QUEUE
+from worker import QUEUE, RadioQueueWorker
 
-logging.basicConfig(format="%(asctime)s %(name)s  %(levelname)s  %(message)s")
-_logger = logging.getLogger("radio_button")
-_logger.level = logging.DEBUG
+_logger = logger.init_logger(__name__)
 _logger.debug("Initialised radio button listener.")
 
 
@@ -18,7 +16,11 @@ class Radio(Player, RadioQueueWorker):
         self.enabled = False
         self.hold_time = 0
         self.gpio_pin = 14
-        self.button = Button(self.gpio_pin, hold_time=self.hold_time)
+        try:
+            self.button = Button(self.gpio_pin, hold_time=self.hold_time)
+        except Exception:
+            _logger.exception("Could not load button.")
+            self.button = None
         self.wait_time = 2
         self.player = player
 
@@ -56,4 +58,5 @@ class Radio(Player, RadioQueueWorker):
         pause()
 
     def run(self):
-        self.button_listener()
+        if self.button:
+            self.button_listener()

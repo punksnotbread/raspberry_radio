@@ -1,6 +1,9 @@
 import queue
 
-QUEUE = queue.Queue()
+import logger
+
+_logger = logger.init_logger(__name__)
+QUEUE: queue.Queue = queue.Queue()
 
 
 class RadioQueueWorker:
@@ -9,8 +12,8 @@ class RadioQueueWorker:
 
     def consume_queue(self, func):
         while True:
-            print("Waiting on queue with size ", self.queue.qsize())
+            _logger.debug(f"Waiting on queue with size {self.queue.qsize()}")
             item = self.queue.get()
-            print("Consuming: ", item)
+            _logger.debug(f"Consuming: {item}")
             func(item)
             self.queue.task_done()

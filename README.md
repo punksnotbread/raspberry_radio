@@ -17,17 +17,19 @@ venv/bin/python main.py
 ```
 
 ## TODOs
-- Move logging to separate class (and log better).
-- Add other radio stations.
-  - Maybe make this configureable via a frontend? 
-- Make this configureable via config.
-- Daemonize.
-- Test.
-- Lint.
-- Typehint.
-- Fix requirements (it still requires to reinstall `RPi.GPIO` on some occasions?)
-- Metrics? (e.g. how much time is spent being on one or the other station)
-- Make it possible to switch through the stations via HTTP requests? (e.g. build a listener server?)
+- [x] Move logging to separate class (and log better).
+- [x] Add other radio stations.
+- [ ] Make this configureable via config.
+- [ ] Daemonize.
+- [ ] Test.
+- [ ] Lint.
+- [ ] Typehint.
+- [x] Make it possible to switch through the stations via HTTP requests? (e.g. build a listener server?)
+- [ ] Save library to json.
+- [ ] Load library from json.
+- [ ] Support add/removal of sources via webserver.
+- [ ] Fix requirements (it still requires to reinstall `RPi.GPIO` on some occasions?)
+- [ ] Metrics? (e.g. how much time is spent being on one or the other station)
 
 ### Daemonize (linux)
 ```

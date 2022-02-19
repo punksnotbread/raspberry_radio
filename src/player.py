@@ -1,13 +1,11 @@
-import logging
 import time
 
 import vlc
 
+import logger
 from voice_speaker import ESpeaker
 
-logging.basicConfig(format="%(asctime)s %(name)s  %(levelname)s  %(message)s")
-_logger = logging.getLogger("player")
-_logger.level = logging.DEBUG
+_logger = logger.init_logger(__name__)
 
 
 class Player:
