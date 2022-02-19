@@ -17,7 +17,7 @@ venv/bin/python main.py
 ```
 
 ## TODOs
-- [ ] Move logging to separate class (and log better).
+- [x] Move logging to separate class (and log better).
 - [x] Add other radio stations.
 - [ ] Make this configureable via config.
 - [ ] Daemonize.
