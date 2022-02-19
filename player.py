@@ -15,13 +15,13 @@ class Player:
         pass
 
     def stop(self) -> None:
-        return NotImplementedError
+        ...
 
     def play_file(self, filepath: str) -> None:
-        return NotImplementedError
+        ...
 
     def play_url(self, url: str) -> None:
-        return NotImplementedError
+        ...
 
 
 class VLCPlayer(Player):
@@ -39,9 +39,9 @@ class VLCPlayer(Player):
             return
 
         if self.speaker:
-            filepath = self.speaker.save_words(filepath)
-            file_was_saved = filepath["file_was_saved"]
-            filepath = filepath["path"]
+            write_info = self.speaker.save_words(filepath)
+            file_was_saved = write_info["file_was_saved"]
+            filepath = write_info["path"]
             if file_was_saved:
                 _logger.debug(f"{filepath} has not been yet saved, waiting..")
                 time.sleep(2)
