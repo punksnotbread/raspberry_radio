@@ -38,7 +38,7 @@ After=multi-user.target
 [Service]
 Type=simple
 Restart=always
-ExecStart=/<PATH_TO_VENV>/python3 /<PATH_TO_REPO>/raspberry_radio/main.py
+ExecStart=/<PATH_TO_VENV>/python3 /<PATH_TO_REPO>/raspberry_radio/src/main.py
 
 [Install]
 WantedBy=multi-user.target
