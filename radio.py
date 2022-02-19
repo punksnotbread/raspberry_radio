@@ -5,6 +5,7 @@ from gpiozero import Button
 
 from library import OPTIONS, RADIOS
 from player import Player
+from worker import RadioQueueWorker, QUEUE
 
 logging.basicConfig(format="%(asctime)s %(name)s  %(levelname)s  %(message)s")
 _logger = logging.getLogger("radio_button")
@@ -12,7 +13,7 @@ _logger.level = logging.DEBUG
 _logger.debug("Initialised radio button listener.")
 
 
-class Radio(Player):
+class Radio(Player, RadioQueueWorker):
     def __init__(self, player):
         self.enabled = False
         self.hold_time = 0
@@ -25,13 +26,16 @@ class Radio(Player):
         return OPTIONS[(num - 1) % len(OPTIONS)]
 
     def _run_command(self, option: str) -> None:
-        radio = RADIOS.get(option, None)
+        radio = RADIOS.get(option.lower(), None)
         if radio:
             self.player.play_file(radio["name"])
             self.player.play_url(radio["url"])
         else:
             self.player.play_file("off")
             self.player.stop()
+
+    def play_option(self, option: str) -> None:
+        self._run_command(option)
 
     def _listen_button(self):
         press_count = 0
@@ -44,8 +48,12 @@ class Radio(Player):
                     f"Registered a button press, current count is {press_count}"
                 )
                 option = self._get_option(press_count)
-                self._run_command(option)
+                QUEUE.put(option)
+                # self._run_command(option)
 
-    def run(self):
+    def button_listener(self):
         self._listen_button()
         pause()
+
+    def run(self):
+        self.button_listener()
