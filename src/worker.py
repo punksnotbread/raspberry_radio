@@ -1,8 +1,9 @@
-import logger
 import queue
 
+import logger
+
 _logger = logger.init_logger(__name__)
-QUEUE = queue.Queue()
+QUEUE: queue.Queue = queue.Queue()
 
 
 class RadioQueueWorker:

@@ -1,13 +1,14 @@
-from pathlib import Path
-import logger
 import os
+from pathlib import Path
 
 from gtts import gTTS
+
+import logger
 
 _logger = logger.init_logger(__name__)
 
 ROOT_DIR = Path(__file__).parent.parent
-MP3S_DIR = ROOT_DIR / 'mp3s'
+MP3S_DIR = ROOT_DIR / "mp3s"
 
 
 class ESpeaker:
