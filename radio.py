@@ -24,7 +24,7 @@ class Radio(Player):
     def _get_option(self, num: int) -> str:
         return OPTIONS[(num - 1) % len(OPTIONS)]
 
-    def _run_command(self, option: int) -> None:
+    def _run_command(self, option: str) -> None:
         radio = RADIOS.get(option, None)
         if radio:
             self.player.play_file(radio["name"])
