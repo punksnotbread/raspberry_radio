@@ -23,7 +23,7 @@ def read_root():
         }
         </style>
         <form name="Radio selection" action="/" method="POST">
-            <input type="radio" id="off" name="radio_station" value="Off">
+            <input type="radio" id="off" name="radio_station" value="Off" checked>
             <label for="off">Off</label><br>
 
             <input type="radio" id="psr" name="radio_station" value="PSR">
