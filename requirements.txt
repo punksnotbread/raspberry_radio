@@ -17,7 +17,7 @@ requests==2.27.1
 six==1.16.0
 sniffio==1.2.0
 starlette==0.17.1
-typing-extensions==4.0.1
+typing-extensions==4.3.0
 urllib3==1.26.7
 uvicorn==0.17.5
 zipp==3.7.0
