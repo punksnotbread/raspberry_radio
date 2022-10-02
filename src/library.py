@@ -3,6 +3,7 @@ OPTIONS = [
     "opus",
     "nts1",
     "nts2",
+    "rvln",
     "off",
 ]
 
@@ -22,5 +23,9 @@ RADIOS = {
     "nts2": {
         "url": "http://stream-relay-geo.ntslive.net/stream2",
         "name": "NTS Live 2",
+    },
+    "rvln": {
+        "url": "http://radio.audiomastering.lt:8000/radiovilnius-mp3",
+        "name": "Radio Vilnius",
     },
 }

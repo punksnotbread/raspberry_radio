@@ -37,6 +37,9 @@ def read_root():
 
             <input type="radio" id="nts2" name="radio_station" value="NTS2">
             <label for="nts2">NTS2</label><br>
+            
+            <input type="radio" id="rvln" name="radio_station" value="Radio Vilnius">
+            <label for="nts2">RVLN</label><br>
 
             <input type="submit">
         </form>
