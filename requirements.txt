@@ -4,7 +4,7 @@ certifi==2021.10.8
 charset-normalizer==2.0.12
 click==8.0.3
 colorzero==2.0
-fastapi==0.74.0
+fastapi==0.87.0
 gpiozero==1.6.2
 gTTS==2.2.3
 h11==0.13.0
