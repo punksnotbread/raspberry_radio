@@ -7,7 +7,7 @@ import logger
 
 _logger = logger.init_logger(__name__)
 
-ROOT_DIR = Path(__file__).parent.parent
+ROOT_DIR = Path(__file__).parent
 MP3S_DIR = ROOT_DIR / "mp3s"
 
 
