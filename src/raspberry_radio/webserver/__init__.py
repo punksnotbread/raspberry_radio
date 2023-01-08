@@ -1,5 +1,5 @@
 from .webserver import Webserver
 
 all = [
-    "Webserver"
+    "Webserver",
 ]

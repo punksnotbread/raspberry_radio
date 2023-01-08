@@ -1,5 +1,5 @@
 from .radio import Radio
 
 all = [
-    "Radio"
+    "Radio",
 ]

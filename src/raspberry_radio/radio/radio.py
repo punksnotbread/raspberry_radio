@@ -2,8 +2,8 @@ from signal import pause
 
 from gpiozero import Button
 
-from raspberry_radio.logger import init_logger
 from raspberry_radio.library import OPTIONS, RADIOS
+from raspberry_radio.logger import init_logger
 from raspberry_radio.player import Player
 from raspberry_radio.worker import QUEUE, RadioQueueWorker
 
