@@ -40,7 +40,7 @@ After=multi-user.target
 [Service]
 Type=simple
 Restart=always
-ExecStart=/<PATH_TO_VENV>/python3 /<PATH_TO_REPO>/raspberry_radio/raspberry_radio/src/main.py
+ExecStart=poetry run python -m raspberry_radio
 
 [Install]
 WantedBy=multi-user.target

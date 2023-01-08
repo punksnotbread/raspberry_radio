@@ -1,13 +1,13 @@
 import threading
 
-import logger
-from player import VLCPlayer
-from radio import Radio
-from voice_speaker import ESpeaker
-from webserver import Webserver
-from worker import RadioQueueWorker
+from .logger import init_logger
+from .player.player import VLCPlayer
+from .radio.radio import Radio
+from .speaker.voice_speaker import ESpeaker
+from .webserver.webserver import Webserver
+from .worker.worker import RadioQueueWorker
 
-_logger = logger.init_logger(__name__)
+_logger = init_logger(__name__)
 
 
 def main():

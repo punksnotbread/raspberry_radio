@@ -1,8 +1,8 @@
 import queue
 
-import logger
+from raspberry_radio.logger import init_logger
 
-_logger = logger.init_logger(__name__)
+_logger = init_logger(__name__)
 QUEUE: queue.Queue = queue.Queue()
 
 

@@ -1,10 +1,10 @@
 [tool.poetry]
-name = "raspberry-radio"
+name = "Raspberry Pi Radio"
 version = "0.1.0"
 description = ""
 authors = ["Your Name <you@example.com>"]
 readme = "README.md"
-packages = [{include = "src"}]
+packages = [{include = "raspberry_radio", from = "src"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"

@@ -2,12 +2,12 @@ from signal import pause
 
 from gpiozero import Button
 
-import logger
-from library import OPTIONS, RADIOS
-from player import Player
-from worker import QUEUE, RadioQueueWorker
+from raspberry_radio.logger import init_logger
+from raspberry_radio.library import OPTIONS, RADIOS
+from raspberry_radio.player import Player
+from raspberry_radio.worker import QUEUE, RadioQueueWorker
 
-_logger = logger.init_logger(__name__)
+_logger = init_logger(__name__)
 _logger.debug("Initialised radio button listener.")
 
 

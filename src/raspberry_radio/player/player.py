@@ -2,10 +2,10 @@ import time
 
 import vlc
 
-import logger
-from voice_speaker import ESpeaker
+from raspberry_radio.logger import init_logger
+from raspberry_radio.speaker import ESpeaker
 
-_logger = logger.init_logger(__name__)
+_logger = init_logger(__name__)
 
 
 class Player:
