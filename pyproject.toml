@@ -1,10 +1,10 @@
 [tool.poetry]
-name = "raspberry-radio"
+name = "Raspberry Pi Radio"
 version = "0.1.0"
 description = ""
 authors = ["Your Name <you@example.com>"]
 readme = "README.md"
-packages = [{include = "src"}]
+packages = [{include = "raspberry_radio", from = "src"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -32,6 +32,11 @@ urllib3 = "1.26.7"
 uvicorn = "0.17.5"
 zipp = "3.7.0"
 
+
+[tool.poetry.group.dev.dependencies]
+black = "^22.12.0"
+isort = "^5.11.4"
+flake8 = "^6.0.0"
 
 [build-system]
 requires = ["poetry-core"]

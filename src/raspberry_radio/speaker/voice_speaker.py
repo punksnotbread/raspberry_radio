@@ -3,11 +3,11 @@ from pathlib import Path
 
 from gtts import gTTS
 
-import logger
+from raspberry_radio.logger import init_logger
 
-_logger = logger.init_logger(__name__)
+_logger = init_logger(__name__)
 
-ROOT_DIR = Path(__file__).parent
+ROOT_DIR = Path(__file__).parent.parent
 MP3S_DIR = ROOT_DIR / "mp3s"
 
 
