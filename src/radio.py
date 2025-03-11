@@ -3,7 +3,7 @@ from signal import pause
 from gpiozero import Button
 
 import logger
-from library import OPTIONS, RADIOS
+from library import RADIOS
 from player import Player
 from worker import QUEUE, RadioQueueWorker
 
@@ -25,14 +25,15 @@ class Radio(Player, RadioQueueWorker):
         self.player = player
 
     def _get_option(self, num: int) -> str:
-        return OPTIONS[(num - 1) % len(OPTIONS)]
+        return list(RADIOS.keys())[(num - 1) % len(RADIOS.keys())]
 
     def _run_command(self, option: str) -> None:
-        radio = RADIOS.get(option.lower(), None)
-        if radio:
-            self.player.play_file(radio["name"])
+        radio = RADIOS.get(option, None)
+        if radio and option.lower() != "off":
+            self.player.play_file(option)
             self.player.play_url(radio["url"])
         else:
+            _logger.warning(f"Could not find `{option}`, turning off.")
             self.player.play_file("off")
             self.player.stop()
 

@@ -1,31 +1,23 @@
-OPTIONS = [
-    "psr",
-    "opus",
-    "nts1",
-    "nts2",
-    "rvln",
-    "off",
-]
-
 RADIOS = {
-    "psr": {
+    "Off": {"id": 0},
+    "Palanga Street Radio": {
+        "id": 1,
         "url": "https://stream.palanga.live:8443/palanga128.mp3",
-        "name": "Palanga Street Radio",
     },
-    "opus": {
-        "url": "https://radijas.lrt.lt/radijas/lrt_opus/playlist.m3u8",
-        "name": "Opus",
+    "LRT Opus": {
+        "id": 2,
+        "url": "https://stream-live.lrt.lt/radio_opus/320k/lrt_opus.m3u8",
     },
-    "nts1": {
+    "NTS Live 1": {
+        "id": 3,
         "url": "http://stream-relay-geo.ntslive.net/stream",
-        "name": "NTS Live 1",
     },
-    "nts2": {
+    "NTS Live 2": {
+        "id": 4,
         "url": "http://stream-relay-geo.ntslive.net/stream2",
-        "name": "NTS Live 2",
     },
-    "rvln": {
+    "Radio Vilnius": {
+        "id": 5,
         "url": "http://radio.audiomastering.lt:8000/radiovilnius-mp3",
-        "name": "Radio Vilnius",
     },
 }

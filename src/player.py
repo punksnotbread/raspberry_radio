@@ -32,6 +32,7 @@ class VLCPlayer(Player):
         self.player.stop()
 
     def play_file(self, filepath: str) -> None:
+        _logger.debug(f"Filepath given: {filepath}")
         self.player.stop()
         if not filepath:
             return
@@ -45,7 +46,7 @@ class VLCPlayer(Player):
                 time.sleep(2)
 
         media = vlc.Media(filepath)
-        _logger.debug(f"Setting media {media} to `{filepath}`.")
+        _logger.debug(f"Setting media to `{filepath}`.")
 
         # TODO: This should be somehow fixed and we should use the same VLC instance
         #  for both - radio stream and title speak.

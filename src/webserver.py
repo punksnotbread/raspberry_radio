@@ -1,56 +1,43 @@
 import uvicorn
-from fastapi import FastAPI, Form
+from fastapi import FastAPI, Form, Request
 from fastapi.responses import HTMLResponse
+from fastapi.templating import Jinja2Templates
 
 import logger
+from library import RADIOS
 from worker import QUEUE
 
 _logger = logger.init_logger(__name__)
 app = FastAPI(title="Raspberry Radio")
+templates = Jinja2Templates(directory="src/templates")
 
 
-@app.get("/", status_code=200, response_class=HTMLResponse)
-def read_root():
-    return """
-    <!DOCTYPE html>
-    <html lang="en">
-        <style>
-        form {
-          margin: 0 auto;
-          width: auto;
-          text-align: left;
-          display: table;
-        }
-        </style>
-        <form name="Radio selection" action="/" method="POST">
-            <input type="radio" id="off" name="radio_station" value="Off" checked>
-            <label for="off">Off</label><br>
-
-            <input type="radio" id="psr" name="radio_station" value="PSR">
-            <label for="psr">Palanga street radio</label><br>
-
-            <input type="radio" id="opus" name="radio_station" value="Opus">
-            <label for="opus">LRT Opus</label><br>
-
-            <input type="radio" id="nts1" name="radio_station" value="NTS1">
-            <label for="nts1">NTS1</label><br>
-
-            <input type="radio" id="nts2" name="radio_station" value="NTS2">
-            <label for="nts2">NTS2</label><br>
-            
-            <input type="radio" id="rvln" name="radio_station" value="Radio Vilnius">
-            <label for="nts2">RVLN</label><br>
-
-            <input type="submit">
-        </form>
-    </html>
-    """
+@app.get("/", response_class=HTMLResponse)
+async def read_root(request: Request):
+    stations = [(key, data["id"]) for key, data in RADIOS.items()]
+    return templates.TemplateResponse(
+        "radio.html",
+        {
+            "request": request,
+            "stations": stations,
+            "selected_station": None,
+        },
+    )
 
 
-@app.post("/")
-def form_post(radio_station: str = Form(...)):
+@app.post("/", response_class=HTMLResponse)
+async def form_post(request: Request, radio_station: str = Form(...)):
+    _logger.info(f"Requested: {radio_station}")
     QUEUE.put(radio_station)
-    return HTMLResponse(read_root())
+    stations = [(key, data["id"]) for key, data in RADIOS.items()]
+    return templates.TemplateResponse(
+        "radio.html",
+        {
+            "request": request,
+            "stations": stations,
+            "selected_station": radio_station,
+        },
+    )
 
 
 class Webserver:
