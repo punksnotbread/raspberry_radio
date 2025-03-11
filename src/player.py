@@ -23,7 +23,7 @@ class Player:
 
 
 class VLCPlayer(Player):
-    def __init__(self, speaker: ESpeaker = None):
+    def __init__(self, speaker: ESpeaker | None = None):
         self.player = vlc.MediaPlayer()  # Main radio player.
         self.word_player = vlc.MediaPlayer()  # Used to say station names.
         self.speaker = speaker

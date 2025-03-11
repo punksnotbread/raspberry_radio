@@ -1,4 +1,6 @@
-RADIOS = {
+from typing import Any
+
+RADIOS: dict[str, dict[str, Any]] = {
     "Off": {"id": 0},
     "Palanga Street Radio": {
         "id": 1,
