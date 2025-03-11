@@ -3,6 +3,9 @@ Change through internet radios by using a button connected to the RPI via GPIO, 
 
 Radio stations are defined in `library.py`.
 
+### Requirements
+Setup was done on python 3.10.9
+
 ### Setup
 Based on https://pinout.xyz/ , an example setup would be ground on 6, GPIO 14 on 8th pin.
 ```
