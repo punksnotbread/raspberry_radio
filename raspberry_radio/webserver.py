@@ -1,15 +1,16 @@
+import logging
+
 import uvicorn
 from fastapi import FastAPI, Form, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 
-import logger
-from library import RADIOS
-from worker import QUEUE
+from raspberry_radio.library import RADIOS
+from raspberry_radio.worker import QUEUE
 
-_logger = logger.init_logger(__name__)
+_logger = logging.getLogger(__name__)
 app = FastAPI(title="Raspberry Radio")
-templates = Jinja2Templates(directory="src/templates")
+templates = Jinja2Templates(directory="raspberry_radio/templates")
 
 
 @app.get("/", response_class=HTMLResponse)

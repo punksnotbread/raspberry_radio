@@ -16,7 +16,7 @@ python -r requirements.txt
 
 ### Local testing
 ```
-venv/bin/python main.py
+.venv/bin/python -m raspberry_radio
 ```
 
 ## TODOs
@@ -43,7 +43,7 @@ After=multi-user.target
 [Service]
 Type=simple
 Restart=always
-ExecStart=/<PATH_TO_VENV>/python3 /<PATH_TO_REPO>/raspberry_radio/src/main.py
+ExecStart=/<PATH_TO_VENV>/python -m raspberry_radio
 
 [Install]
 WantedBy=multi-user.target

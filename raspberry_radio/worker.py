@@ -1,8 +1,7 @@
+import logging
 import queue
 
-import logger
-
-_logger = logger.init_logger(__name__)
+_logger = logging.getLogger(__name__)
 QUEUE: queue.Queue = queue.Queue()
 
 

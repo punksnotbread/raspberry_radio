@@ -1,11 +1,10 @@
+import logging
 import os
 from pathlib import Path
 
 from gtts import gTTS
 
-import logger
-
-_logger = logger.init_logger(__name__)
+_logger = logging.getLogger(__name__)
 
 ROOT_DIR = Path(__file__).parent.parent
 MP3S_DIR = ROOT_DIR / "mp3s"
